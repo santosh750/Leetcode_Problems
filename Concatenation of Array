@@ -1,0 +1,41 @@
+import java.util.*;
+
+class Solution {
+
+    public static int[] getConcatenation(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[2 * n];
+
+        for (int i = 0; i < n; i++) {
+            ans[i] = nums[i];
+            ans[i + n] = nums[i];
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        System.out.println("Enter numbers (-1 to stop):");
+
+        while (true) {
+            int num = sc.nextInt();
+            if (num == -1) break;
+            list.add(num);
+        }
+
+        // Convert ArrayList to array
+        int[] nums = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            nums[i] = list.get(i);
+        }
+
+        int[] result = getConcatenation(nums);
+
+        // Print result
+        System.out.println(Arrays.toString(result));
+    }
+}
