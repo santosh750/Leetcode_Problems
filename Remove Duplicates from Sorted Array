@@ -1,0 +1,19 @@
+import java.util.Arrays;
+class Solution {
+    public int removeDuplicates(int[] nums) {
+       Arrays.sort(nums);
+       int rd =0;
+       int i = 1;
+       while(i<nums.length){
+       if(nums[rd] == nums[i]){
+        i++;
+       }
+       else{
+        rd++;
+        nums[rd] = nums[i];
+        i++;
+       }
+       }
+       return rd+1;
+    }
+}
