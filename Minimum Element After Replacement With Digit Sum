@@ -1,0 +1,19 @@
+class Solution {
+    public int minElement(int[] nums) {
+        int digit_sum = 0;
+        int i=0;
+        
+        int result = 10000;
+        while(i<nums.length){
+            digit_sum=nums[i];
+            int sum = 0;
+            while(digit_sum>0){
+                sum = sum+digit_sum%10;
+                digit_sum = digit_sum/10;
+            }
+            result = Math.min(result,sum);
+            i++;
+        }
+        return result;
+    }
+}
