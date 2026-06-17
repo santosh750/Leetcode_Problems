@@ -1,0 +1,17 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        int slow = 0, fast = 1;
+        int n = nums.length;
+        Arrays.sort(nums);
+        while(slow < n && fast < n){
+            if(nums[slow] == nums[fast]){
+                slow = fast+1;
+                fast = slow+1;
+            }
+            else{
+                return nums[slow];
+            }
+        }
+        return nums[slow];
+    }
+}
